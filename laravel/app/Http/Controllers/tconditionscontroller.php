@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Error;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -40,59 +41,90 @@ class tconditionscontroller extends Controller
     {
         $latest_record = TransformerRecord::where('transformer_id', $id)->latest()->first();
 
-        $status = [];
-
-        if($latest_record->temperature > 80 || $latest_record->voltage > 420 || $latest_record->current > 20 || $latest_record->oil < 20)
-        {
+        if(is_null($latest_record)){
             $status['general'] = 0;
+            $status['voltage'] = 'No record';
+            $status['current'] = 'No record';
+            $status['temperature'] = 'No record';
+            $status['oil'] = 'No record';
         }
         else
         {
-            $status['general'] = 1;
+            $status = [];
+
+            if($latest_record->temperature > 80 || $latest_record->voltage > 420 || $latest_record->current > 20 || $latest_record->oil < 20)
+            {
+                $status['general'] = 0;
+            }
+            else
+            {
+                $status['general'] = 1;
+            }
+
+            if($latest_record->voltage > 420)
+            {
+                $status['voltage'] = 'Not ok';
+            }
+            else
+            {
+                $status['voltage'] = 'ok';
+            }
+
+            if($latest_record->current > 20)
+            {
+                $status['current'] = 'Not ok';
+            }
+            else
+            {
+                $status['current'] = 'ok';
+            }
+
+            if($latest_record->temperature > 80)
+            {
+                $status['temperature'] = 'Not ok';
+            }
+            else
+            {
+                $status['temperature'] = 'ok';
+            }
+
+            if($latest_record->oil < 20)
+            {
+                $status['oil'] = 'Not ok';
+            }
+            else
+            {
+                $status['oil'] = 'ok';
+            }
         }
 
-        if($latest_record->voltage > 420)
+        if($status['general'] == 0)
         {
-            $status['voltage'] = 'Not ok';
-        }
-        else
-        {
-            $status['voltage'] = 'ok';
-        }
+            \Mail::raw('Transformer has issues', function($message)
+            {
+                $message->from('us@example.com', 'Laravel');
 
-        if($latest_record->current > 20)
-        {
-            $status['current'] = 'Not ok';
-        }
-        else
-        {
-            $status['current'] = 'ok';
-        }
+                $message->subject('Transformer problem');
 
-        if($latest_record->temperature > 80)
-        {
-            $status['temperature'] = 'Not ok';
-        }
-        else
-        {
-            $status['temperature'] = 'ok';
-        }
+                $message->to('mwaruwac@gmail.com');
+            });
+            try
+            {
+                $error = Error::create(['Transformer'=>Transformer::find($latest_record->transformer_id)->name, 'Transformer_id'=>$latest_record->transformer_id]);
+            }
+            catch(\Exception $e){}
 
-        if($latest_record->oil < 20)
-        {
-            $status['oil'] = 'Not ok';
-        }
-        else
-        {
-            $status['oil'] = 'ok';
         }
 
 
         return view('transformers.create', ['record'=>$latest_record, 'status'=>$status]);
     }
 
-    public function fault(){
+    public function error()
+    {
+        $errors= Error::latest()->get();
 
+        return view('faults.error', ['errors'=>$errors]);
     }
 
     /**

@@ -15,7 +15,8 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'mandrill'),
+   // 'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' =>'smtp',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +81,8 @@ return [
     |
     */
 
-    'username' => env('mohdeee81@gmail.com'),
+    //'username' => env('mohdeee81@gmail.com'),
+    'username' => 'mohdeee81@gmail.com',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +95,8 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    //'password' => env('MAIL_PASSWORD'),
+    'password' => 'ttthz6bgJGQb2LhhrzcoRw',
 
     /*
     |--------------------------------------------------------------------------

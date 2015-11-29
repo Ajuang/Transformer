@@ -77,13 +77,13 @@
 
         <div class="form-group">
 
-            {!!Form::text('Longitude',null,['class' => 'form-control', 'placeholder'=>'Longitude'])!!}
+            {!!Form::text('lng',null,['class' => 'form-control', 'id'=>'lng', 'placeholder'=>'Longitude'])!!}
 
         </div>
 
         <div class="form-group">
 
-            {!!Form::text('Latitude',null,['class' => 'form-control', 'placeholder'=>'Latitude'])!!}
+            {!!Form::text('lat',null,['class' => 'form-control', 'id'=>'lat', 'placeholder'=>'Latitude'])!!}
         </div>
 
         <div class="form-group">
@@ -102,22 +102,38 @@
         </div>
     {!!Form::close()!!}
 
-    <script>
-        var map = new google.maps.Map(document.getElementById('map-canvas'),{
-            centre: {
-                latitude: 27.72,
-                longitude:85.36
-            },
-            zoom:15
+
+<script>
+    var myCenter=new google.maps.LatLng({{ $transformers->lat }}, {{ $transformers->lng }});
+
+    function initialize()
+    {
+        var mapProp = {
+            center:myCenter,
+            zoom:15,
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+        };
+
+        var map=new google.maps.Map(document.getElementById("map-canvas"),mapProp);
+
+        var marker=new google.maps.Marker({
+            position:myCenter,
+            draggable: true
         });
-        var marker = new google.maps.Marker({
-            position: {
-                latitude: 27.72,
-                longitude:85.36
-            },
-            map:map
+
+        marker.setMap(map);
+
+        google.maps.event.addListener(marker, 'position_changed', function(){
+            var lat = marker.getPosition().lat();
+            var lng = marker.getPosition().lng();
+
+            $('#lat').val(lat);
+            $('#lng').val(lng);
         });
-    </script>
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
 
 @stop

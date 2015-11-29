@@ -14,9 +14,9 @@
     <div class="col-md-12">
         <div class="panel panel-success" style="padding: 0px">
             <div class="panel-heading">
-                <a class="pull-right" href="/details/{{ $transformers->slug }}/edit"><i class="fa fa-edit"></i></a>
-                <a class="pull-right" href="/details/{{ $transformers->slug }}/delete"><i class="fa fa-trash-o fa-fw"></i></a>
-                <h3>{{$transformers->transformer}}</h3>
+                <a class="pull-right" href="/centres/{{ $centres->centre }}/edit"><i class="fa fa-edit"></i></a>
+                <a class="pull-right" href="/centres/{{ $centres->centre }}/delete"><i class="fa fa-trash-o fa-fw"></i></a>
+                <h3>{{$centres->centre}}</h3>
                 <div class="clearfix"></div>
             </div>
             <div class="panel-body">
@@ -24,21 +24,21 @@
                     <thead>
                     </thead>
                     <tbody>
-                        <tr><td>Model Name</td><td>{{$transformers->model_number}}</td></tr>
-                        <tr><td>City Location</td><td>{{$transformers->city_location}}</td></tr>
-                        <tr><td>Mounting Location</td><td>{{$transformers->mounting_location}}</td></tr>
-                        <tr><td>Number of phases</td><td>{{$transformers->number_of_phases}}</td></tr>
-                        <tr><td>Rated Voltage</td><td>{{$transformers->rated_voltage}}</td></tr>
-                        <tr><td>Control centre</td><td>{{$transformers->control_centre}}</td></tr>
-                        <tr><td>Rated Power</td><td>{{$transformers->rated_power}}</td></tr>
-                        <tr><td>Type of insulation</td><td>{{$transformers->type_of_insulation}}</td></tr>
+                    <tr><td>Control Centre</td><td>{{$centres->centre}}</td></tr>
+                    <tr><td>City Location</td><td>{{$centres->city_location}}</td></tr>
+                    {{--<tr><td>Mounting Location</td><td>{{$transformers->mounting_location}}</td></tr>--}}
+                    {{--<tr><td>Number of phases</td><td>{{$transformers->number_of_phases}}</td></tr>--}}
+                    {{--<tr><td>Rated Voltage</td><td>{{$transformers->rated_voltage}}</td></tr>--}}
+                    {{--<tr><td>Control centre</td><td>{{$transformers->control_centre}}</td></tr>--}}
+                    {{--<tr><td>Rated Power</td><td>{{$transformers->rated_power}}</td></tr>--}}
+                    {{--<tr><td>Type of insulation</td><td>{{$transformers->type_of_insulation}}</td></tr>--}}
                     </tbody>
                 </table>
 
-                <h3>Transformer Status</h3>
+                <h3>Control Centre Status</h3>
 
                 <div class="alert alert-success" role="alert">
-                    <a href="#" class="alert-link">Status Working: Connected to power grid</a>
+                    <a href="#" class="alert-link">Control Centre: Connected to power grid</a>
                 </div>
 
                 <table>
@@ -52,11 +52,11 @@
     <div id="map-canvas"></div>
 
     {{--<script--}}
-            {{--src="http://maps.googleapis.com/maps/api/js">--}}
+    {{--src="http://maps.googleapis.com/maps/api/js">--}}
     {{--</script>--}}
 
     <script>
-        var myCenter=new google.maps.LatLng({{ $transformers->lat }}, {{ $transformers->lng }});
+        var myCenter=new google.maps.LatLng({{ $centres->lat }}, {{ $centres->lng }});
 
         function initialize()
         {

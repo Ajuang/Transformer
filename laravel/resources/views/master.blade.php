@@ -4,12 +4,9 @@
     <title>Transformers Monitoring System</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="style" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5O88MqnBHpORZdpaVLnyFGMgX3qAZw5Y&libraries=places"
-            type="text/javascript"></script>
 
-
+    <!--font awesome library -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <!-- Bootstrap Core CSS -->
     <link href="/css/lcss/css/bootstrap.min.css" rel="stylesheet">
 
@@ -66,8 +63,10 @@
                                 <li><a href="/about">About</a></li>
                                 <li><a href="/help">Help</a>
                                 <li><a href="/details">Transformer Details</a></li>
-                                <li><a href="/condition">Transformer Conditions</a></li>
                                 <li><a href="/users">Manage Users</a></li>
+                                <li><a href="/faults">Faults</a></li>
+                                <li><a href="/centres">Control Centres</a></li>
+
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 @if(Auth::check())

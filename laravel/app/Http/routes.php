@@ -31,7 +31,7 @@ $router->get('details/{slug}/edit', ['as'=> 'details', 'uses' => 'TransformersCo
 
 $router->patch('details/{slug}', ['as'=> 'details', 'uses' => 'TransformersController@update']);
 
-//$router->get('/details/{id}/condition', ['as'=> 'details', 'uses' => 'TransformersController@condition']);
+$router->get('/faults', 'tconditionscontroller@error');
 
 $router->get('/details/{id}/condition',['as'=> 'condition', 'uses' => 'tconditionscontroller@condition']);
 
@@ -50,6 +50,27 @@ $router->patch('users/{username}', ['as'=> 'users', 'uses' => 'UserController@up
 $router->post('/users/add', 'UserController@addnew');
 
 $router->get('/users/{username}/delete', 'UserController@delete');
+
+//
+$router->get('centres', ['as'=> 'centres', 'uses' => 'CentresController@centres']);
+
+$router->get('centres/{centre}',['as'=> 'centres', 'uses' =>  'CentresController@show']);
+
+$router->get('centres/{centre}/edit', ['as'=> 'centres', 'uses' => 'CentresController@edit']);
+
+$router->patch('centres/{centre}', ['as'=> 'centres', 'uses' => 'CentresController@update']);
+
+$router->post('/centres/add', 'CentresController@addnew');
+
+$router->get('/centres/{centre}/delete', 'CentresController@delete');
+
+
+
+
+
+
+
+
 
 
 

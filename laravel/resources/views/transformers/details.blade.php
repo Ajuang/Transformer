@@ -6,7 +6,7 @@
         <table class="table table-striped table-responsive table-hover">
             <thead>
             <tr>
-                <th>Transformer name</th><th>City Location</th><th>Model Number</th>
+                <th>Transformer name</th><th>City Location</th><th>Model Number</th><td>Condition</td>
             </tr>
             </thead>
             <tbody>
@@ -15,6 +15,7 @@
                     <td>{!!link_to_route('details',$transformer->transformer,[$transformer->slug])!!}</td>
                     <td>{!! $transformer->city_location !!}</td>
                     <td>{!! $transformer->model_number !!}</td>
+                    <td><a href="/details/{{$transformer->id}}/condition"><i class="fa fa-list-alt"></i></a> </td>
                 </tr>
             @endforeach
             <tr>
@@ -24,7 +25,7 @@
                     {!! Form::submit('Create', ['class'=>'btn btn-primary']) !!}
                     {!! Form::close() !!}
                 </td>
-                <td colspan="2"></td>
+                <td colspan="3"></td>
             </tr>
             </tbody>
         </table>
