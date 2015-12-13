@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Transformers Monitoring System</title>
+    <title>Smartwaste Monitoring System</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
@@ -55,16 +55,16 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="#">TX Power</a>
+                            <a class="navbar-brand" href="#">SWC</a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <li class="active"><a href="/home">Home</a></li>
                                 <li><a href="/about">About</a></li>
                                 <li><a href="/help">Help</a>
-                                <li><a href="/details">Transformer Details</a></li>
+                                <li><a href="/details">Bin Details</a></li>
                                 <li><a href="/users">Manage Users</a></li>
-                                <li><a href="/faults">Faults</a></li>
+                                <li><a href="/faults">Bin to be Collected</a></li>
                                 <li><a href="/centres">Control Centres</a></li>
 
                             </ul>

@@ -1,4 +1,4 @@
-@extends('master')
+`@extends('master')
 
 @section('content')
     <!-- Help -->
@@ -18,5 +18,6 @@
             </div>
             <!-- /.row -->
         </div>
+    </section>
 
 @stop

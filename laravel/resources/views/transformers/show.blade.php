@@ -1,6 +1,7 @@
 @extends('master')
 
-@section('content')
+
++@section('content')
     <style>
         #map-canvas{
             width:1400px;
@@ -35,10 +36,10 @@
                     </tbody>
                 </table>
 
-                <h3>Transformer Status</h3>
+                <h3>Bin Status</h3>
 
                 <div class="alert alert-success" role="alert">
-                    <a href="#" class="alert-link">Status Working: Connected to power grid</a>
+                    <a href="#" class="alert-link">Bin Status: Working</a>
                 </div>
 
                 <table>
@@ -73,6 +74,11 @@
             });
 
             marker.setMap(map);
+            var infowindow = new google.maps.InfoWindow({
+                content:"Bin 1"
+            });
+
+            infowindow.open(map,marker);
 
             google.maps.event.addListener(marker, 'position_changed', function(){
                 var lat = marker.getPosition().lat();

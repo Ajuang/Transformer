@@ -64,6 +64,9 @@ $router->post('/centres/add', 'CentresController@addnew');
 
 $router->get('/centres/{centre}/delete', 'CentresController@delete');
 
+//->get('/write_data','tconditionscontroller@write_data');
+
+
 
 
 

@@ -14,13 +14,13 @@
         type="text/javascript"></script>
 
 
-    <h2>Edit Transformer Details</h2>
+    <h2>Edit Bin Details</h2>
 
     {!!Form::model($transformers, ['route' => ['details' ,$transformers ->slug], 'method' =>'PATCH'])!!}
 
            <div class="form-group">
 
-           {!!Form::text('transformer',null,['class' => 'form-control', 'placeholder'=>'transformer'])!!}
+           {!!Form::text('transformer',null,['class' => 'form-control', 'placeholder'=>'bin'])!!}
 
            </div>
 
@@ -72,7 +72,7 @@
 
         </div>
 
-        <h3>Transformer Location</h3>
+        <h3>Bin Location</h3>
 
 
         <div class="form-group">
@@ -97,7 +97,7 @@
 
         <div class="form-group">
 
-            {!!Form::submit('Update Transformer',['class' => 'btn btn-primary'])!!}
+            {!!Form::submit('Update Bin',['class' => 'btn btn-primary'])!!}
 
         </div>
     {!!Form::close()!!}

@@ -100,13 +100,14 @@ class tconditionscontroller extends Controller
 
         if($status['general'] == 0)
         {
-            \Mail::raw('Transformer has issues', function($message)
+            \Mail::raw('This Transformer has issues and is experiencing faults', function($message)
             {
-                $message->from('us@example.com', 'Laravel');
+                $message->from('mohdeee81@gmail.com', 'Transformer Monitoring');
 
-                $message->subject('Transformer problem');
+                $message->subject('Transformer Fault Detected');
 
-                $message->to('mwaruwac@gmail.com');
+                $message->to('mohdeee81@gmail.com')->cc('cgaya@jkuat.ac.ke');
+
             });
             try
             {
@@ -197,8 +198,9 @@ class tconditionscontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+
+    public function write_data(){
+
+        return view ('write_data');
     }
 }

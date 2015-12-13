@@ -73,6 +73,11 @@
             });
 
             marker.setMap(map);
+            var infowindow = new google.maps.InfoWindow({
+                content:"Hello World!"
+            });
+
+            infowindow.open(map,marker);
 
             google.maps.event.addListener(marker, 'position_changed', function(){
                 var lat = marker.getPosition().lat();

@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <table class="table table-responsive table-striped">
             <thead>
-                <tr><th>Transformer</th><th>Time of Fault</th></tr>
+                <tr><th>BIN</th><th>Time of Collection</th></tr>
             </thead>
             <tbody>
                 @foreach($errors as $error)

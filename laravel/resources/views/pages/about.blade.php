@@ -7,10 +7,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Transformer Monitoring System!</h2>
-                    <p class="lead">The System will be able to provide online monitoring of the power supply,to store and analyze data stored on a web server,to idenfy exact locations of transformers experiencing faults and send alerts to the relevant personnel when their is a fault experienced at a certain transformer.
+                    <h3>Smart waste Monitoring System!</h3>
+                    <div class="alert alert-success" role="alert">
+                        <a href="#" class="alert-link">The System will be able to provide online monitoring of the Bin waste level.It is proposed and able to improve and optimise the handling of urban solid waste.It is made up of real time monitoring system that monitors the level of the bin fullness through sensors placed in the bin..</a>
+                    </div>
                 </div>
+
             </div>
             <!-- /.row -->
         </div>
+    </section>
 @stop
